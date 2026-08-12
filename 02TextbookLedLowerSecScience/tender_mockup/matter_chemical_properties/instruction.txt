@@ -1,0 +1,1 @@
+Tender mock-up: Exploring Diversity of Matter by Its Chemical Properties. Includes original ECD-style explanatory content, vector illustrations, SLS-style classification Activity A1, and a separation-inquiry Activity A2. Offline-safe xAPI state is gated on valid SLS endpoint and auth parameters.

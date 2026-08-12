@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iron and Sulfur: Mixture or Compound?</title>
+  <script src="lib/xapiwrapper.min.js"></script>
+  <script src="lib/xAPI.js"></script>
+  <style>
+    :root{--ink:#082f57;--muted:#426889;--teal:#008e94;--line:#bfd7e7;--good:#157a5b}*{box-sizing:border-box}body{margin:0;background:#f3f8fc;color:var(--ink);font:16px/1.45 "Segoe UI",Arial,sans-serif}.lab{max-width:1280px;margin:auto;padding:18px}.top{display:flex;gap:18px;align-items:start;justify-content:space-between;border-bottom:4px solid var(--teal);padding:5px 0 14px}.eyebrow{margin:0 0 4px;color:var(--teal);font-weight:900;letter-spacing:.08em;font-size:.82rem}.top h1{margin:0;font-size:clamp(1.55rem,3vw,2.25rem);line-height:1.1}.top p{margin:7px 0 0;color:var(--muted);font-size:1.06rem}.safe{max-width:315px;background:#fff4d8;border:1px solid #edc66b;border-radius:12px;padding:10px 12px;font-weight:700;font-size:.9rem}.grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.85fr);gap:18px;margin-top:18px}.panel{border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 3px 11px #16395a10}.scene{padding:14px;background:linear-gradient(#edf8fb,#e8f1f6 68%,#fcfcfb 68%)}.question{padding:10px 12px;margin:0 0 12px;background:#fff;border-left:5px solid var(--teal);box-shadow:0 2px 10px #16395a16;font-size:1.04rem;font-weight:700}.stage{position:relative;min-height:395px;overflow:hidden;border-radius:12px;background:#dff1f7}.scene svg{display:block;width:100%;height:auto;min-height:390px}.readout{position:absolute;right:14px;top:14px;width:min(280px,38%);background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 10px;box-shadow:0 3px 13px #16395a1b}.readout summary{cursor:pointer;color:var(--teal);font-size:.8rem;font-weight:900;letter-spacing:.06em}.readout summary::marker{color:var(--teal)}.readout p{margin:7px 0 1px;font-size:.88rem;font-weight:750}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:14px 0 0}button{min-height:50px;border-radius:11px;border:2px solid var(--teal);background:white;color:#006e76;padding:9px 12px;font:800 1rem/1.15 inherit;cursor:pointer}button.primary{background:var(--teal);color:#fff}button.warn{border-color:#b9781d;color:#885208}button:disabled{opacity:.48;cursor:not-allowed}button:focus-visible,input:focus-visible,summary:focus-visible{outline:4px solid #f4bf4a;outline-offset:2px}.side{padding:15px}.side h2{font-size:1.2rem;margin:0 0 10px}.predict{padding:12px;background:#eef7fb;border-radius:12px;margin-bottom:13px}.predict p{margin:0 0 8px;font-weight:800}.choice{display:block;padding:7px 0;cursor:pointer}.choice input{margin-right:7px;transform:scale(1.22)}.feedback{min-height:55px;padding:11px;background:#fff8e4;border-left:4px solid #f0ae2b;border-radius:8px;color:#62420a}.evidence{margin-top:13px}.evidence h3{margin:0 0 7px;font-size:1rem}.evidence-table{width:100%;border-collapse:collapse;font-size:.84rem}.evidence-table th,.evidence-table td{border-bottom:1px solid var(--line);padding:7px;text-align:left;vertical-align:top}.evidence-table th{color:#235375}.empty{color:#54738c;font-style:italic}.conclusion{margin-top:12px;padding:12px;border-radius:11px;background:#eefaf4;border:1px solid #a8dbc3}.conclusion h3{margin:0 0 4px;color:var(--good);font-size:1rem}.conclusion p{margin:0}.log-details{margin-top:13px;border-top:1px solid var(--line);padding-top:10px}.log-details summary{cursor:pointer;font-weight:800}.log{max-height:130px;overflow:auto;margin-top:8px;font-size:.8rem;color:#335b78}.log div{border-bottom:1px solid #e1edf3;padding:5px 0}.flame{opacity:0;transform-origin:center;transition:opacity .4s}.heating .flame{opacity:1;animation:flicker .45s infinite alternate}.compound{opacity:0;transition:opacity .65s}.mixture{transition:opacity .65s}.reacted .mixture{opacity:0}.reacted .compound{opacity:1}.magnet-iron{opacity:0;transition:opacity .45s}.magnet-test .magnet-iron{opacity:1}.magnet-test .iron-particles{opacity:.28}.magnet-test.reacted .magnet-iron{opacity:0}.thermo-fill{height:0;transition:height .9s,transform .9s;transform:translateY(0)}.reacted .thermo-fill{height:62px;transform:translateY(-62px)}@keyframes flicker{to{transform:scaleX(.86) translateY(5px)}}@media(max-width:850px){.grid{grid-template-columns:1fr}.readout{width:54%}.top{display:block}.safe{max-width:none;margin-top:12px}}@media(max-width:490px){.lab{padding:10px}.stage{min-height:330px}.scene svg{min-height:330px}.readout{position:static;width:100%;margin:0 0 10px}.controls{grid-template-columns:1fr}.evidence-table{font-size:.76rem}}
+  </style>
+  <style>
+    /* Magnet test: the loose iron translates only within the tube's inner boundary. */
+    .iron-particles circle{transform-box:fill-box;transform-origin:center;transition:transform 1.55s cubic-bezier(.38,.03,.82,.38)}
+    .iron-particles circle:nth-child(1){--mx:131px;--my:-6px}
+    .iron-particles circle:nth-child(2){--mx:119px;--my:-12px}
+    .iron-particles circle:nth-child(3){--mx:77px;--my:14px}
+    .iron-particles circle:nth-child(4){--mx:60px;--my:2px}
+    .iron-particles circle:nth-child(5){--mx:-6px;--my:14px}
+    .magnet-test:not(.reacted) .iron-particles circle{transform:translate(var(--mx),var(--my))}
+    .magnet-test.reacted .iron-particles circle{transform:none}
+    .magnet-test .iron-particles{opacity:1}
+    .particle-physics .iron-particles circle,.particle-physics.magnet-test:not(.reacted) .iron-particles circle{transform:none;transition:none}
+    .magnet-iron{display:none!important}
+    #stage:not(.magnet-test):not(.magnet-sweeping) g[transform="translate(498 153)"]{transform:translate(620px,115px);opacity:.68}
+    .magnet-sweeping g[transform="translate(498 153)"]{animation:magnetSweep 2.2s cubic-bezier(.2,.78,.25,1) forwards}
+    @keyframes magnetSweep{0%{transform:translate(620px,115px)}45%{transform:translate(515px,146px)}70%,100%{transform:translate(498px,153px)}}
+    @media(prefers-reduced-motion:reduce){.magnet-sweeping g[transform="translate(498 153)"]{animation-duration:.1s}.iron-particles circle{transition-duration:.1s}.flame{animation:none!important}}
+  </style>
+</head>
+<body>
+<main class="lab">
+  <header class="top"><div><p class="eyebrow">VIRTUAL INQUIRY LAB · MATTER</p><h1>Iron and sulfur: mixture or compound?</h1><p>Use evidence from formation, energy, properties and separation to decide.</p></div><div class="safe">Safety boundary: this is a teacher-controlled virtual heating demonstration. Do not heat chemicals yourself.</div></header>
+  <div class="grid"><section class="panel scene" aria-labelledby="sceneTitle"><p class="question" id="sceneTitle">Scientist’s question: What changes when iron and sulfur are heated together?</p><div class="stage" id="stage"><details class="readout"><summary>LIVE OBSERVATION · reveal</summary><p id="observation">Ready: iron filings and sulfur powder are together, but not chemically joined.</p></details><svg viewBox="0 0 820 415" role="img" aria-labelledby="sceneSvgTitle sceneSvgDesc"><title id="sceneSvgTitle">A virtual teacher demonstration of iron and sulfur</title><desc id="sceneSvgDesc">A test tube containing iron and sulfur above a Bunsen burner. A magnet is held close to the sample for the test.</desc><defs><linearGradient id="bench" x1="0" x2="1"><stop stop-color="#b98955"/><stop offset="1" stop-color="#e0bd83"/></linearGradient><linearGradient id="glass" x1="0" x2="1"><stop stop-color="#fff" stop-opacity=".82"/><stop offset=".5" stop-color="#d7f4fc" stop-opacity=".46"/><stop offset="1" stop-color="#fff" stop-opacity=".78"/></linearGradient></defs><rect width="820" height="415" fill="#e4f4f9"/><path d="M0 315h820v100H0z" fill="url(#bench)"/><path d="M0 315h820" stroke="#764f2a" stroke-width="7"/><rect x="103" y="52" width="22" height="258" rx="8" fill="#556675"/><rect x="64" y="300" width="102" height="17" rx="4" fill="#3e4d58"/><rect x="158" y="134" width="113" height="15" rx="6" fill="#4c5c68"/><rect x="245" y="122" width="20" height="39" rx="4" fill="#647583"/><g transform="rotate(12 340 155)"><rect x="261" y="106" width="233" height="77" rx="36" fill="url(#glass)" stroke="#4f7891" stroke-width="5"/><path d="M283 139h184v32q-93 29-184 0z" fill="#f0c339" opacity=".9" class="mixture"/><g class="mixture iron-particles" fill="#58636d"><circle cx="303" cy="151" r="7"/><circle cx="331" cy="157" r="6"/><circle cx="365" cy="148" r="8"/><circle cx="398" cy="158" r="6"/><circle cx="429" cy="146" r="7"/></g><path d="M283 139h184v32q-93 29-184 0z" fill="#2d3338" class="compound"/><path d="M287 150c52 20 113 17 171-2" fill="none" stroke="#88959d" stroke-width="3" class="compound"/></g><g class="flame"><path d="M352 292c-21-33 1-59 15-84 5 26 25 31 10 84z" fill="#ff7045"/><path d="M366 292c-9-17 2-33 7-44 6 15 16 22 4 44z" fill="#ffe366"/></g><g><rect x="326" y="293" width="78" height="14" rx="6" fill="#2a546e"/><rect x="346" y="307" width="37" height="10" fill="#4d606d"/><path d="M358 293c-14-22 15-35 15-58 13 23 27 34 2 58z" fill="#89c9e8" opacity=".8"/></g><g transform="translate(498 153)"><text x="-4" y="-17" fill="#315977" font-size="16" font-weight="700">MAGNET TEST</text><path d="M20 0v63h23V23h36v40h23V0H79v21H43V0z" fill="#d84a43"/><path d="M20 0h23v22H20zM79 0h23v22H79z" fill="#f5f7f8"/><path d="M21 49C-12 36-43 20-67 2" fill="none" stroke="#008e94" stroke-width="4" stroke-dasharray="7 6"/><path d="M-67 2l12 0-5 9z" fill="#008e94"/><g class="magnet-iron" fill="#58636d"><circle cx="-11" cy="46" r="6"/><circle cx="1" cy="58" r="6"/><circle cx="14" cy="46" r="7"/></g></g><g transform="translate(673 244)"><rect x="0" y="0" width="24" height="70" rx="10" fill="#fff" stroke="#51718a" stroke-width="3"/><rect x="6" y="67" width="12" height="0" rx="6" fill="#e5543d" class="thermo-fill"/><text x="-8" y="91" fill="#315977" font-size="13" font-weight="700">temperature</text></g><text x="68" y="374" fill="#fff" font-size="18" font-weight="800">Iron filings + sulfur powder</text><text id="productLabel" x="480" y="374" fill="#fff" font-size="18" font-weight="800"></text></svg></div><div class="controls"><button id="mixBtn" class="primary">1. Mix without heating</button><button id="heatBtn" class="warn">2. Apply heat to react</button><button id="magnetBtn">3. Test with a magnet</button><button id="recordBtn" disabled>Record this evidence</button></div></section><aside class="panel side" aria-labelledby="evidenceTitle"><h2 id="evidenceTitle">Experiment evidence</h2><section class="predict"><p>Before testing, which sample should a magnet separate?</p><label class="choice"><input type="radio" name="prediction" value="mixture"> The iron–sulfur mixture</label><label class="choice"><input type="radio" name="prediction" value="compound"> The black product after heating</label><button id="predictBtn" style="margin-top:8px;min-height:44px">Save prediction</button><div id="predictFeedback" class="feedback" aria-live="polite">Make a prediction, then test it.</div></section><section class="evidence"><h3>Recorded observations</h3><table class="evidence-table"><thead><tr><th>Run</th><th>Formation</th><th>Magnet evidence</th><th>Physical separation?</th></tr></thead><tbody id="rows"><tr class="empty"><td colspan="4">No evidence recorded yet.</td></tr></tbody></table></section><section class="conclusion"><h3>Use the evidence</h3><p id="conclusion">Record a mixture run and a heated-product run to compare them.</p></section><details class="log-details"><summary>Action log (<span id="logCount">0</span>)</summary><div class="log" id="log" aria-live="polite"></div><button id="clearLog" style="min-height:40px;margin-top:8px">Clear log</button></details></aside></div>
+</main>
+<script>
+(()=>{const state={kind:'mixture',magnet:false,prediction:null,runs:[],actions:[],start:Date.now(),reactionRunning:false};const $=id=>document.getElementById(id),stage=$('stage'),observation=$('observation'),productLabel=$('productLabel');const observations={mixture:'Mixture: yellow sulfur and grey iron are still present. No new substance has formed and no energy change is observed.',compound:'Compound: heating started a chemical reaction. A black solid, iron(II) sulfide, formed; the temperature increased as energy was released.'};const readout=()=>state.kind==='mixture'?{formation:'No chemical reaction',magnet:'Iron filings move to magnet; sulfur remains',physical:'Yes — magnet removes iron'}:{formation:'Chemical reaction; black iron(II) sulfide',magnet:'No attraction to magnet',physical:'No — not by this magnet test'};function store(action,details={}){const entry={t:((Date.now()-state.start)/1000).toFixed(1),action,details};state.actions.unshift(entry);$('logCount').textContent=state.actions.length;$('log').innerHTML=state.actions.map(x=>`<div><b>${x.t}s · ${x.action}</b><br>${x.details.note||''}</div>`).join('');const q=new URLSearchParams(location.search);if(q.get('endpoint')&&q.get('auth')&&typeof window.storeState==='function'){try{window.storeState({activity:'iron-sulfur-compound-mixture-inquiry',action,details,relativeTime:Number(entry.t),state:{kind:state.kind,magnet:state.magnet,prediction:state.prediction,runs:state.runs}})}catch(e){}}}function render(){stage.classList.toggle('reacted',state.kind==='compound');stage.classList.toggle('magnet-test',state.magnet);observation.textContent=observations[state.kind];productLabel.textContent=state.kind==='compound'?'Black iron(II) sulfide':'';$('recordBtn').disabled=!state.magnet||state.reactionRunning;$('heatBtn').disabled=state.kind==='compound'||state.reactionRunning;$('magnetBtn').textContent=state.magnet?'Magnet test complete':'3. Test with a magnet';if(state.runs.length>=2)$('conclusion').textContent='The mixture retained iron’s magnetic property and was physically separated. The heated product had different properties and was not separated by the magnet: it is a compound.'}$('mixBtn').addEventListener('click',()=>{state.kind='mixture';state.magnet=false;render();store('mixed without heating',{note:'Iron and sulfur are together but not chemically joined.'})});$('heatBtn').addEventListener('click',()=>{if(state.reactionRunning)return;state.reactionRunning=true;stage.classList.add('heating');observation.textContent='Heating starts the reaction. Watch for the new black substance and a temperature increase.';render();store('heating started',{note:'Teacher-controlled heating started a chemical reaction.'});setTimeout(()=>{state.reactionRunning=false;state.kind='compound';state.magnet=false;stage.classList.remove('heating');render();store('compound formed',{note:'Black iron(II) sulfide formed; its properties differ from iron and sulfur.'})},2600)});$('magnetBtn').addEventListener('click',()=>{state.magnet=true;render();const r=readout();observation.textContent=r.magnet+'. '+(state.kind==='mixture'?'The substances retain their own properties.':'The black product is not physically separated by this method.');store('magnet test',{note:r.magnet})});$('recordBtn').addEventListener('click',()=>{const r=readout();state.runs.push({kind:state.kind,...r});$('rows').innerHTML=state.runs.map((run,i)=>`<tr><td>${i+1}</td><td>${run.formation}</td><td>${run.magnet}</td><td>${run.physical}</td></tr>`).join('');store('evidence recorded',{note:`Run ${state.runs.length}: ${r.formation}`});render()});$('predictBtn').addEventListener('click',()=>{const selection=document.querySelector('input[name="prediction"]:checked');if(!selection){$('predictFeedback').textContent='Choose one sample first.';return}state.prediction=selection.value;const correct=state.prediction==='mixture';$('predictFeedback').textContent=correct?'Good scientific prediction. Test it: iron keeps its magnetic property in the mixture.':'Test that idea. A compound has new properties; the magnet test will show whether iron is still present as iron.';store('prediction saved',{note:`Predicted: ${state.prediction}`})});$('clearLog').addEventListener('click',()=>{state.actions=[];$('log').innerHTML='';$('logCount').textContent='0';store('log reset',{note:'Learner cleared the visible action log.'})});render();store('lab opened',{note:'Safe iron and sulfur inquiry ready.'})})();
+</script>
+<script>
+/* Replace the generic horseshoe drawing with a horizontal two-pole bar magnet. */
+(()=>{const magnet=document.querySelector('g[transform="translate(498 153)"]');if(!magnet)return;magnet.innerHTML=`<text x="-5" y="-16" fill="#315977" font-size="16" font-weight="700">MAGNET TEST</text><g aria-label="Bar magnet with north pole nearest the sample"><rect x="0" y="0" width="118" height="42" rx="5" fill="#e9f0f4" stroke="#294f6a" stroke-width="3"/><path d="M3 3h56v36H3z" fill="#e45249"/><path d="M59 3h56v36H59z" fill="#2f78b7"/><text x="31" y="28" text-anchor="middle" fill="#fff" font-size="20" font-weight="900">N</text><text x="87" y="28" text-anchor="middle" fill="#fff" font-size="20" font-weight="900">S</text><path d="M0 21C-22 19-45 10-67 2" fill="none" stroke="#008e94" stroke-width="4" stroke-dasharray="7 6"/><path d="M-67 2l12 0-5 9z" fill="#008e94"/></g>`})();
+</script>
+<script>
+/* Apparatus fidelity: connect the support arm and put the thermometer bulb on the glass. */
+(()=>{const svg=document.querySelector('#stage svg');if(!svg)return;const ns='http://www.w3.org/2000/svg';const arm=svg.querySelector('rect[x="158"][y="134"][width="113"]');if(arm){arm.setAttribute('x','115');arm.setAttribute('width','156');const boss=document.createElementNS(ns,'g');boss.setAttribute('aria-label','Bosshead connecting the clamp arm to the retort stand');boss.innerHTML='<rect x="94" y="124" width="45" height="35" rx="7" fill="#465967"/><circle cx="132" cy="141.5" r="6" fill="#a9bcc7" stroke="#294b60" stroke-width="3"/>';svg.append(boss)}const thermometer=svg.querySelector('g[transform="translate(673 244)"]');if(thermometer){thermometer.setAttribute('transform','translate(416 50)');const bulb=document.createElementNS(ns,'circle');bulb.setAttribute('cx','12');bulb.setAttribute('cy','70');bulb.setAttribute('r','8');bulb.setAttribute('fill','#e5543d');bulb.setAttribute('stroke','#51718a');bulb.setAttribute('stroke-width','3');thermometer.append(bulb);const label=thermometer.querySelector('text');if(label){label.textContent='glass-contact thermometer';label.setAttribute('x','-54');label.setAttribute('y','-9');label.setAttribute('font-size','12')}const description=document.getElementById('sceneSvgDesc');if(description)description.textContent='A test tube is held by a clamp connected to a retort stand. A thermometer bulb touches the glass above the product, and a bar magnet can be swept beside the tube.'}})();
+</script>
+<script>
+/* Replayable magnet sweep with a bounded granular-particle model for loose iron. */
+(()=>{
+  const button=document.getElementById('magnetBtn'),recordButton=document.getElementById('recordBtn'),stage=document.getElementById('stage');
+  const mixButton=document.getElementById('mixBtn'),heatButton=document.getElementById('heatBtn');
+  const circles=[...document.querySelectorAll('.iron-particles circle')];
+  if(!button||!stage||circles.length===0)return;
+  const starts=circles.map(circle=>({x:Number(circle.getAttribute('cx')),y:Number(circle.getAttribute('cy')),r:Number(circle.getAttribute('r'))}));
+  const targets=[{x:434,y:145},{x:450,y:145},{x:442,y:162},{x:458,y:160},{x:423,y:160}];
+  let sweepTimer=0,frame=0,runToken=0;
+  function resetParticles(){runToken++;clearTimeout(sweepTimer);cancelAnimationFrame(frame);stage.classList.remove('particle-physics','magnet-sweeping');button.disabled=false;button.textContent='3. Test with a magnet';if(recordButton)recordButton.disabled=true;circles.forEach((circle,i)=>{circle.setAttribute('cx',starts[i].x);circle.setAttribute('cy',starts[i].y)})}
+  function clampToGlass(p){
+    /* Local test-tube coordinates. Radii remain inside the inner glass/powder region. */
+    p.x=Math.max(288+p.r,Math.min(464-p.r,p.x));
+    p.y=Math.max(138+p.r,Math.min(173-p.r,p.y));
+  }
+  function separateCollisions(particles){
+    for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
+      const a=particles[i],b=particles[j],dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||.01,min=a.r+b.r+1;
+      if(d>=min)continue;
+      const overlap=(min-d)/2,nx=dx/d,ny=dy/d;
+      a.x-=nx*overlap;a.y-=ny*overlap;b.x+=nx*overlap;b.y+=ny*overlap;
+      const relative=(b.vx-a.vx)*nx+(b.vy-a.vy)*ny;
+      if(relative<0){const impulse=-.28*relative;a.vx-=impulse*nx;a.vy-=impulse*ny;b.vx+=impulse*nx;b.vy+=impulse*ny}
+      clampToGlass(a);clampToGlass(b);
+    }
+  }
+  function attractLooseIron(token){
+    if(stage.classList.contains('reacted'))return;
+    stage.classList.add('particle-physics');
+    const particles=starts.map((p,i)=>({...p,vx:0,vy:0,target:targets[i]}));
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,duration=reduced?90:1900,startTime=performance.now();
+    let previous=startTime;
+    function step(now){
+      if(token!==runToken)return;
+      const dt=Math.min(.025,(now-previous)/1000||.016);previous=now;
+      for(const p of particles){
+        /* Magnetic pull toward the pole, viscous damping, and a weak settling force. */
+        const ax=15*(p.target.x-p.x)-6.2*p.vx,ay=13*(p.target.y-p.y)-6.2*p.vy;
+        p.vx+=ax*dt;p.vy+=(ay+2.2)*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;clampToGlass(p);
+      }
+      separateCollisions(particles);
+      particles.forEach((p,i)=>{circles[i].setAttribute('cx',p.x.toFixed(2));circles[i].setAttribute('cy',p.y.toFixed(2))});
+      if(now-startTime<duration)frame=requestAnimationFrame(step);
+    }
+    frame=requestAnimationFrame(step);
+  }
+  button.addEventListener('click',()=>{
+    clearTimeout(sweepTimer);cancelAnimationFrame(frame);runToken++;const token=runToken;
+    stage.classList.remove('magnet-sweeping');void stage.getBoundingClientRect();stage.classList.add('magnet-sweeping');
+    attractLooseIron(token);
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const sweepDuration=reduced?120:2250;
+    requestAnimationFrame(()=>{if(token!==runToken)return;button.disabled=true;button.textContent='Magnet test running…';if(recordButton)recordButton.disabled=true});
+    sweepTimer=setTimeout(()=>{stage.classList.remove('magnet-sweeping');button.disabled=false;button.textContent='Repeat magnet test';if(recordButton)recordButton.disabled=false},sweepDuration);
+  },{capture:true});
+  mixButton?.addEventListener('click',resetParticles,{capture:true});
+  heatButton?.addEventListener('click',resetParticles,{capture:true});
+})();
+</script>
+<script>
+/* Short damped simple-harmonic mixing motion for both components. */
+(()=>{
+  const mixButton=document.getElementById('mixBtn'),heatButton=document.getElementById('heatBtn'),magnetButton=document.getElementById('magnetBtn');
+  const observation=document.getElementById('observation'),ironGroup=document.querySelector('.iron-particles');
+  if(!mixButton||!ironGroup)return;
+  const ns='http://www.w3.org/2000/svg',sulfurGroup=document.createElementNS(ns,'g');
+  sulfurGroup.setAttribute('class','mixture sulfur-particles');
+  sulfurGroup.setAttribute('aria-label','Yellow sulfur particles mixed among grey iron particles');
+  const sulfurStarts=[[300,165],[320,143],[346,164],[378,144],[410,164],[443,144],[457,164]];
+  sulfurStarts.forEach(([x,y])=>{const circle=document.createElementNS(ns,'circle');circle.setAttribute('cx',x);circle.setAttribute('cy',y);circle.setAttribute('r','5');circle.setAttribute('fill','#ffd85a');circle.setAttribute('stroke','#a77612');circle.setAttribute('stroke-width','2');sulfurGroup.append(circle)});
+  ironGroup.parentNode.append(sulfurGroup);
+  const particles=[...ironGroup.querySelectorAll('circle'),...sulfurGroup.querySelectorAll('circle')];
+  const bases=particles.map(p=>({x:Number(p.getAttribute('cx')),y:Number(p.getAttribute('cy')),r:Number(p.getAttribute('r'))}));
+  let mixFrame=0,mixToken=0;
+  const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
+  function settle(){mixToken++;cancelAnimationFrame(mixFrame);particles.forEach((p,i)=>{p.setAttribute('cx',bases[i].x);p.setAttribute('cy',bases[i].y)});mixButton.disabled=false;mixButton.textContent='1. Mix without heating'}
+  mixButton.addEventListener('click',()=>{
+    settle();const token=++mixToken,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,duration=reduced?100:1450,start=performance.now();
+    requestAnimationFrame(()=>{if(token!==mixToken)return;mixButton.disabled=true;mixButton.textContent='Mixing particles…';if(observation)observation.textContent='Iron and sulfur grains oscillate back and forth with different phases while the tube is mixed.'});
+    function step(now){
+      if(token!==mixToken)return;
+      const seconds=(now-start)/1000,decay=Math.exp(-1.75*seconds),omega=2*Math.PI*2.7;
+      particles.forEach((p,i)=>{const b=bases[i],phase=i*.91,ax=i<5?13:10,ay=i<5?5:7;const x=clamp(b.x+ax*decay*Math.sin(omega*seconds+phase),288+b.r,464-b.r);const y=clamp(b.y+ay*decay*Math.sin(omega*seconds+phase+Math.PI/2),138+b.r,173-b.r);p.setAttribute('cx',x.toFixed(2));p.setAttribute('cy',y.toFixed(2))});
+      if(now-start<duration){mixFrame=requestAnimationFrame(step)}else{settle();if(observation)observation.textContent='Mixed sample: grey iron and yellow sulfur particles are distributed together, but they are not chemically joined.'}
+    }
+    mixFrame=requestAnimationFrame(step);
+  },{capture:true});
+  heatButton?.addEventListener('click',settle,{capture:true});
+  magnetButton?.addEventListener('click',settle,{capture:true});
+})();
+</script>
+<script>
+/* Let an SLS landing page embed the full lab without an inner scrollbar. */
+(()=>{if(window.parent===window)return;const reportHeight=()=>window.parent.postMessage({type:'matter-a2-height',height:Math.max(document.documentElement.scrollHeight,document.body.scrollHeight)},'*');addEventListener('load',reportHeight);addEventListener('resize',reportHeight);if('ResizeObserver'in window)new ResizeObserver(()=>requestAnimationFrame(reportHeight)).observe(document.documentElement);requestAnimationFrame(reportHeight)})();
+</script>
+</body></html>

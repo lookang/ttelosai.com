@@ -1,0 +1,7 @@
+SLS Activity A1 — Sort 10 Samples: Element, Compound or Mixture
+
+Learning outcome: Classify matter as an element, compound or mixture using chemical composition.
+
+Student task: Sort the ten sample cards. Students may drag cards, use touch drag, or select a card and then select a category. The activity gives immediate misconception feedback, a results table, downloadable CSV and a collapsible action log.
+
+xAPI: The package records loading, device type, selections, placements, answer checks, results, reset, new set, CSV export, read-aloud use and analytics controls through window.storeState only when SLS supplies both endpoint and auth launch parameters. Direct file previews make no network request.

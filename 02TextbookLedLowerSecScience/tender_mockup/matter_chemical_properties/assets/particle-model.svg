@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Simple particle models of an element, compound and mixture</title>
+  <desc id="desc">An element has one type of atom. A compound has matching pairs of two different atoms joined together. A mixture has two different types of separate particles together.</desc>
+  <defs><filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="9" stdDeviation="9" flood-color="#072f50" flood-opacity=".15"/></filter></defs>
+  <rect width="1200" height="520" rx="30" fill="#e9f7f8"/>
+  <g font-family="Arial, sans-serif" fill="#092e51"><text x="70" y="75" font-size="31" font-weight="700">Element</text><text x="445" y="75" font-size="31" font-weight="700">Compound</text><text x="840" y="75" font-size="31" font-weight="700">Mixture</text></g>
+  <g fill="#fff" stroke="#c7dde7" stroke-width="3" filter="url(#shadow)"><rect x="42" y="105" width="325" height="335" rx="24"/><rect x="437" y="105" width="325" height="335" rx="24"/><rect x="832" y="105" width="325" height="335" rx="24"/></g>
+  <g fill="#20a4a7" stroke="#087d84" stroke-width="3"><circle cx="126" cy="184" r="27"/><circle cx="209" cy="165" r="27"/><circle cx="289" cy="208" r="27"/><circle cx="144" cy="286" r="27"/><circle cx="245" cy="292" r="27"/><circle cx="314" cy="353" r="27"/><circle cx="195" cy="369" r="27"/></g>
+  <g fill="#20a4a7" stroke="#087d84" stroke-width="3"><circle cx="509" cy="190" r="27"/><circle cx="668" cy="282" r="27"/><circle cx="511" cy="353" r="27"/></g>
+  <g fill="#f6b83f" stroke="#b57314" stroke-width="3"><circle cx="559" cy="190" r="27"/><circle cx="718" cy="282" r="27"/><circle cx="561" cy="353" r="27"/></g>
+  <g fill="#20a4a7" stroke="#087d84" stroke-width="3"><circle cx="902" cy="190" r="27"/><circle cx="1042" cy="207" r="27"/><circle cx="884" cy="332" r="27"/><circle cx="1077" cy="341" r="27"/></g>
+  <g fill="#f6b83f" stroke="#b57314" stroke-width="3"><circle cx="969" cy="278" r="27"/><circle cx="1000" cy="372" r="27"/><circle cx="1105" cy="282" r="27"/></g>
+  <g font-family="Arial, sans-serif" font-size="21" fill="#34566e"><text x="78" y="477">One type of atom</text><text x="468" y="477">Same two atoms joined in pairs</text><text x="857" y="477">Two different particles together</text></g>
+</svg>

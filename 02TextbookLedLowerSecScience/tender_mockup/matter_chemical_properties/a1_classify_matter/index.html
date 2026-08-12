@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Samples: Element, Compound or Mixture</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Title bar with collapse toggle -->
+    <div id="titleBar" class="title-bar">
+        <span class="title-text" title="Sort ten samples into Element, Compound or Mixture categories">Sort 10 Samples: Element, Compound or Mixture</span>
+        <button id="toggleTitle" class="toggle-btn" aria-label="Hide title">▲</button>
+    </div>
+
+    <!-- Main container -->
+    <div id="mainContainer" class="main-container">
+        
+        <!-- Instructions panel with read-aloud -->
+        <div class="instructions-panel">
+            <div class="instruction-header">
+                <span id="instructionText">Sort all 10 photographed samples. Drag, or select a card and then tap a category. Use the sample name and particle evidence: one atom type, chemically bonded atoms, or substances not chemically joined.</span>
+                <button id="readAloudBtn" class="icon-btn" title="Read aloud" aria-label="Read instructions aloud">🔊</button>
+            </div>
+            <div class="speech-controls" id="speechControls" style="display: none;">
+                <label>Rate: <input type="range" id="rateControl" min="0.5" max="2" step="0.1" value="1"></label>
+                <label>Pitch: <input type="range" id="pitchControl" min="0.5" max="2" step="0.1" value="1"></label>
+            </div>
+        </div>
+
+        <!-- Sample cards area -->
+        <div class="cards-area">
+            <div id="sampleCards" class="sample-cards"></div>
+        </div>
+
+        <!-- Drop zones -->
+        <div class="drop-zones">
+            <div class="drop-zone" data-category="element">
+                <div class="zone-header">Element</div>
+                <div class="zone-description">Pure substance made of one type of atom</div>
+                <div class="drop-area" data-category="element"></div>
+            </div>
+            <div class="drop-zone" data-category="compound">
+                <div class="zone-header">Compound</div>
+                <div class="zone-description">Pure substance made of two or more types of atoms chemically bonded</div>
+                <div class="drop-area" data-category="compound"></div>
+            </div>
+            <div class="drop-zone" data-category="mixture">
+                <div class="zone-header">Mixture</div>
+                <div class="zone-description">Two or more substances physically combined, not chemically bonded</div>
+                <div class="drop-area" data-category="mixture"></div>
+            </div>
+        </div>
+
+        <!-- Control buttons -->
+        <div class="controls">
+            <button id="checkBtn" class="control-btn">Check Answers</button>
+            <button id="resetBtn" class="control-btn">Reset</button>
+            <button id="newSetBtn" class="control-btn">Shuffle Samples</button>
+            <button id="toggleAnalyticsBtn" class="control-btn">Show Analytics</button>
+        </div>
+
+        <!-- Results display -->
+        <div id="resultsPanel" class="results-panel" style="display: none;"></div>
+
+        <!-- Data table for CSV export -->
+        <div class="data-section">
+            <h3>Activity Results <button id="downloadCSV" class="icon-btn" title="Download results as CSV">📥 Download CSV</button></h3>
+            <div class="table-container">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Sample</th>
+                            <th>Your Answer</th>
+                            <th>Correct Answer</th>
+                            <th>Result</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Analytics panel -->
+        <div id="analyticsPanel" class="analytics-panel" style="display: none;">
+            <div class="analytics-header">
+                <h3>📊 Real-Time Analytics</h3>
+                <button id="clearAnalytics" class="icon-btn">Clear Log</button>
+            </div>
+            <div class="analytics-info">
+                <span id="deviceType">Device: Detecting...</span>
+                <span id="interactionCount">Actions: 0</span>
+            </div>
+            <div id="analyticsLog" class="analytics-log"></div>
+        </div>
+    </div>
+
+    <!-- Feedback tooltip (appears after placement) -->
+    <div id="feedbackTooltip" class="feedback-tooltip" style="display: none;">
+        <button class="close-btn" id="closeFeedback" aria-label="Close feedback">✕</button>
+        <div id="feedbackContent"></div>
+    </div>
+
+    <script src="lib/xapiwrapper.min.js"></script>
+    <script src="lib/xAPI.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
