@@ -12,8 +12,6 @@ nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () =>
   nav.classList.remove('open');
 }));
 
-document.querySelector('#year').textContent = new Date().getFullYear();
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
