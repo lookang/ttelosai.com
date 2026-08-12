@@ -170,7 +170,7 @@ function createSampleCard(sample, index) {
 function populateSampleCard(card, sample) {
     const image = document.createElement('img');
     image.className = 'sample-thumb';
-    image.src = sample.image;
+    image.src = sample.image + '?v=copyright-20260812';
     image.alt = sample.imageAlt;
     image.draggable = false;
     const name = document.createElement('span');
