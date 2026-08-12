@@ -719,3 +719,4 @@ button:active, .sample-card:active {
         border: 2px solid var(--border-color);
     }
 }
+.ttelos-watermark{position:fixed;right:12px;bottom:10px;z-index:90;pointer-events:none;user-select:none;color:#073f5c;opacity:.14;font:800 13px/1 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}.ttelos-copyright{margin:20px auto 8px;padding:12px 16px;max-width:1100px;text-align:center;color:#315f78;font-size:.82rem;font-weight:700}@media print{.ttelos-watermark{position:fixed;opacity:.12}}
